@@ -63,7 +63,7 @@ export function AccountChart({ transactions }) {
       (a, b) => new Date(a.date) - new Date(b.date)
     );
   }, [transactions, dateRange]);
-
+  console.log(filteredData);
   // Calculate totals for the selected period
   const totals = useMemo(() => {
     return filteredData.reduce(

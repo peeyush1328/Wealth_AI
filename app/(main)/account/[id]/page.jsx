@@ -6,12 +6,12 @@ import { AccountChart } from "../_components/account-chart";
 import { TransactionTable } from "../_components/transaction-table";
 
 const AccountPage = async ({ params }) => {
-  const accountData = await getAccountWithTransactions(params.id);
+  const { id } = await params;
+  const accountData = await getAccountWithTransactions(id);
   if (!accountData) {
     notFound();
   }
   const { transactions, ...account } = accountData;
-  console.log(accountData);
   return (
     <div className="space-y-8 px-5">
       <div className="flex gap-4 items-end justify-between">
